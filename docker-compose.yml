@@ -1,0 +1,61 @@
+version: '3.6'
+services:
+  db:
+    image: postgres
+    #hostname: postgres
+    container_name: talgud-docker-db
+    environment:
+      POSTGRES_PASSWORD: student123
+      POSTGRES_USER: postgres
+      POSTGRES_DB: talgud
+    ports:
+      #- 5433:5432
+      - target: 5432
+        published: 5433
+        protocol: tcp
+        mode: host
+    networks:
+      - backdb
+    expose: 
+      - 5433
+    volumes: 
+          - ./postgres-data:/var/lib/postgresql/data
+          # create sql tables and insert data
+          - ./talgud/db/talgud_docker_tables_data.sql:/docker-entrypoint-initdb.d/talgud_docker_tables_data.sql
+
+          
+  
+  back:
+    build: 
+      context: ./talgud
+      target:  finalApp
+    image: triinsagur/talgud-back
+    container_name: talgud-back
+    #environment:
+    #  WAIT_HOSTS: postgres:5433
+    ports:
+      - 8080:8080
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://host.docker.internal:5433/talgud
+    depends_on:
+      - db
+    networks:
+      - frontback 
+      - backdb
+
+  front:
+    build: ./talgud-front
+    image: triinsagur/talgud-front
+    container_name: talgud-front
+    ports:
+      - 8081:3000
+    depends_on:
+      - back
+    networks: 
+      - frontback     
+  
+networks: 
+  backdb:
+    driver: bridge
+  frontback:
+    driver: bridge

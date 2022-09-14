@@ -1,0 +1,32 @@
+{
+  "name": "talgud-front",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build"
+  },
+  "dependencies": {
+    "axios": "^0.27.2",
+    "bulma": "^0.9.4",
+    "mdb-ui-kit": "^4.0.0",
+    "mdb-vue-ui-kit": "^1.13.0",
+    "mdbvue": "^6.7.3",
+    "vue": "^2.6.14",
+    "vue-axios": "^3.4.1",
+    "vue-gallery-slideshow": "^1.5.2",
+    "vue-router": "^3.5.1",
+    "vue2-datepicker": "^3.10.4",
+    "vue2-google-maps": "^0.10.7"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-router": "~5.0.0",
+    "@vue/cli-service": "~5.0.0",
+    "vue-template-compiler": "^2.6.14"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}
