@@ -19,7 +19,7 @@ npm run build
 
 ``docker build -t talgud-front .``
 
-``docker run -dp 8081:3000 talgud-front``
+``docker run --name talgud-front -dp 8081:3000 talgud-front``
 
 ### In order to use Google Maps
 ```

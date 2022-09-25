@@ -2,8 +2,6 @@ package ee.bcs.talgud.domain.userrole;
 
 import ee.bcs.talgud.domain.role.Role;
 import ee.bcs.talgud.domain.user.User;
-import lombok.Getter;
-import lombok.Setter;
 
 import javax.persistence.*;
 
