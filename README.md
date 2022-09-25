@@ -1,5 +1,7 @@
 ## Talgud app dockerized 
-Running with docker-compose.yml config file. Front, back and Postgres in docker.
+[Vue front-end](https://github.com/TriinSagur/talgud-front) and [backend](https://github.com/TriinSagur/talgud) +
+Postgres(script populated) with automated building and running with Docker Compose.
+
 
 #### build images
 ``docker-compose build``
